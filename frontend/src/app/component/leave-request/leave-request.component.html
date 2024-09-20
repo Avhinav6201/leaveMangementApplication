@@ -1,0 +1,69 @@
+<form [formGroup]="leaveForm">
+  <div class="leaverequest">
+    <h3>Request Time Off   <button (click)="closeDialogBox()">
+      <mat-icon>close</mat-icon>
+    </button></h3>
+
+
+    <!-- Leave Type -->
+    <div class="type">
+      <span>Type</span>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Select Leave Type</mat-label>
+        <mat-select formControlName="leaveType" placeholder="Select">
+          <mat-option *ngFor="let leave of userleaveDetails" [value]="leave.leave_type_id">
+      {{leave.leave_type}}
+    </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+      <div *ngIf="leaveForm.controls['leaveType'].touched && leaveForm.controls['leaveType'].invalid">
+        <span *ngIf="leaveForm.controls['leaveType'].hasError('required')">leave type is required</span>
+      </div>
+    </div>
+
+    <!-- Start Date -->
+    <div class="Date">
+      <span>Start date</span>
+      <mat-form-field>
+        <input matInput formControlName="startDate" [matDatepicker]="startPicker" [min]="minDate" placeholder="MM-DD-YYYY">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+
+    </mat-form-field>
+    <div *ngIf="leaveForm.controls['startDate'].touched && leaveForm.controls['startDate'].invalid">
+      <span *ngIf="leaveForm.controls['startDate'].hasError('required')">Start Date is required</span>
+    </div>
+    </div>
+
+    <!-- End Date -->
+    <div class="Date">
+      <span>End date</span>
+      <mat-form-field>
+        <input matInput formControlName="endDate" [matDatepicker]="endPicker" [min]="minDate" placeholder="MM-DD-YYYY">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+
+      </mat-form-field>
+      <!-- resetPasswordForm.hasError('mismatch') -->
+      <div *ngIf="leaveForm.hasError('dateRangeInvalid') && leaveForm.controls['endDate'].touched">
+        <span>End date should be after the start date</span>
+      </div>
+
+    </div>
+
+    <!-- Reason -->
+    <div class="reason">
+      <span>Reason</span>
+      <mat-form-field>
+        <input matInput formControlName="reason" placeholder="Reason">
+
+      </mat-form-field>
+      <div *ngIf="leaveForm.controls['reason'].touched && leaveForm.controls['reason'].invalid">
+        <span *ngIf="leaveForm.controls['reason'].hasError('required')">Reason is required</span>
+      </div>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
+  </div>
+</form>

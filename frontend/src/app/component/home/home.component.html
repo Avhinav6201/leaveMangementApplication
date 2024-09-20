@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+<section class="sidebar-section">
+  <nav class="sidebar">
+    <div class="sidebar-content">
+      <a (click)="showComponent('dashboard')" [class.active]="currentComponent === 'dashboard'" class="nav-link">
+        <mat-icon>dashboard</mat-icon> Dashboard
+      </a>
+      <a (click)="showComponent('history')" [class.active]="currentComponent === 'history'" class="nav-link">
+        <mat-icon>history</mat-icon> History
+      </a>
+    </div>
+  </nav>
+</section>
+
+<div class="dynamic-content">
+  <!-- Conditionally display components based on the currentComponent value -->
+  <div *ngIf="currentComponent === 'dashboard'">
+    <app-dashboard></app-dashboard>
+    <div class="main-content">
+      <div class="announcement">
+        <header><h4>Announcement</h4></header>
+
+      </div>
+      <div class="leave-request">
+        <header><h4>Leave Request</h4></header>
+
+      </div>
+      <div class="celebration">
+        <header><h4>Celebration</h4></header>
+
+      </div>
+      <div class="people-on-leave">
+      <header><h4>Who's On Leave</h4></header>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div *ngIf="currentComponent === 'history'">
+    historyworks
+  </div>
+</div>

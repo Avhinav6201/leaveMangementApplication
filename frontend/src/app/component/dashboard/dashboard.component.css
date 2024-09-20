@@ -1,0 +1,111 @@
+/* User information container */
+.user-information {
+  position: absolute;
+  top: 30px;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  /* background-color: #f8f9fa; */
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+/* Align content inside user-info-content */
+.user-info-content {
+  display: flex;
+  justify-content: space-between; /* Space between header and button */
+  align-items: center;
+  width: 100%; /* Full width to push the button to the right */
+}
+
+.user-info-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-info-content mat-icon {
+  font-size: 1.8rem;
+  color: #007bff;
+}
+
+.user-info-content .btn {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #dc3545; /* Button color */
+  color: white; /* Text color for contrast */
+  border: none; /* Remove default border */
+  transition: background-color 0.3s;
+}
+
+.user-info-content .btn:hover {
+  background-color: #c82333; /* Darker shade on hover */
+}
+
+/* Leave section styling for horizontal layout */
+.leave {
+  display: flex; /* Flexbox for horizontal layout */
+  flex-wrap: nowrap; /* Prevent wrapping to the next line */
+  overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
+  padding: 1rem 2rem;
+  /* background-color: #ffffff; */
+  border-radius: 8px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+  gap: 0.5rem; /* Gap between leave boxes */
+}
+
+/* Individual leave box styling */
+.box {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 6px;
+  flex: 0 0 auto; /* Prevent boxes from shrinking or growing */
+  width: 148px; /* Fixed width for each box */
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition */
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Progress bar styling */
+.mat-progress-bar {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+/* Text within leave boxes */
+.box div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.box span {
+  font-weight: 400;
+}
+
+/* Special styling for half leave */
+.box b {
+  color: blueviolet;
+  font-size: 1rem;
+  font-weight: bold;
+}
+header{
+  border-bottom: 2px solid black ;
+}

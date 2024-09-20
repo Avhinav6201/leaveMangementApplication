@@ -1,0 +1,144 @@
+/* General styles for the login page */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f2f5; /* Light background color */
+  background-image: url('../../../assets/Resources/Leave-Management-1.jpg');
+  background-size: cover; /* Cover the entire background */
+  background-position: center;
+  padding: 20px; /* Add padding to avoid elements touching the edges */
+  box-sizing: border-box; /* Ensure padding does not affect width calculations */
+}
+
+.img {
+  display: none; /* Image is used as a background */
+}
+
+/* Container for the forms */
+.forms-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow forms to wrap on smaller screens */
+  gap: 20px;
+  justify-content: center; /* Center the forms horizontally */
+  max-width: 800px; /* Limit the maximum width */
+  width: 100%;
+  margin: 20px 0; /* Add margin to separate from other content */
+}
+
+.links-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 1rem;
+}
+
+.links-container p {
+  margin: 0;
+}
+
+.highlighted {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.highlighted:hover {
+  color: #0056b3; /* Darker color on hover */
+}
+
+.forms-container form {
+  flex: 1; /* Grow to fill available space */
+  min-width: 280px; /* Minimum width for each form */
+  max-width: 400px; /* Maximum width for each form */
+  width: 100%; /* Ensure form width is responsive */
+}
+
+/* Style for the form container */
+.login-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  /* Removed border-radius for square corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 100%;
+  max-width: 400px; /* Ensure the container is not too wide */
+  margin: 0 auto; /* Center the container */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333; /* Darker color for better contrast */
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold; /* Make labels bold for clarity */
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  /* Removed border-radius for square corners */
+  transition: border-color 0.3s ease; /* Smooth transition for focus */
+  font-size: 1rem; /* Increase font size for readability */
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add subtle box shadow on focus */
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  /* Removed border-radius for square corners */
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+p {
+  text-align: center;
+  margin-top: 1rem;
+  color: #666; /* Subtle text color */
+}
+
+div span {
+  color: #dc3545;
+  font-size: 0.875rem;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .forms-container {
+    flex-direction: column; /* Stack forms vertically on smaller screens */
+    align-items: center; /* Center align the forms */
+  }
+
+  .login-container {
+    padding: 1.5rem; /* Reduce padding on smaller screens */
+  }
+
+  .forms-container form {
+    max-width: 100%; /* Ensure forms take full width on smaller screens */
+  }
+}

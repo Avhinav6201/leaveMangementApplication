@@ -1,0 +1,135 @@
+<div class="login-page">
+  <div class="img"></div>
+
+  <div class="login-container">
+    <!-- login -->
+    <form *ngIf="activeForm === 'login'" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          formControlName="email"
+          #txtemail
+        />
+        <div *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid">
+          <span *ngIf="loginForm.controls['email'].hasError('required')">Email is required.</span>
+          <span *ngIf="loginForm.controls['email'].hasError('email')">Enter a valid email.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          formControlName="password"
+        />
+        <div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">
+          <span *ngIf="loginForm.controls['password'].hasError('required')">Password is required.</span>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" >Login</button>
+      <div class="links-container">
+        <p (click)="toggleForm('register')">
+          <span class="highlighted">Register</span>
+        </p>
+        <p (click)="openForgotPasswordDialog()">
+          <span class="highlighted">Forgot password</span>
+        </p>
+      </div>
+    </form>
+
+
+    <div class="forms-container" *ngIf="activeForm === 'register' ">
+
+      <!-- register -->
+      <form *ngIf="activeForm === 'register'" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <h2>Register</h2>
+        <!-- Username Field -->
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            formControlName="name"
+            placeholder="Name"
+          />
+          <div *ngIf="registerForm.controls['name'].touched && registerForm.controls['name'].invalid">
+            <span *ngIf="registerForm.controls['name'].hasError('required')">Username is required.</span>
+          </div>
+        </div>
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="Email"
+          />
+          <div *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid">
+            <span *ngIf="registerForm.controls['email'].hasError('required')">Email is required.</span>
+            <span *ngIf="registerForm.controls['email'].hasError('email')">Enter a valid email.</span>
+          </div>
+        </div>
+        <!-- Designation Field -->
+        <div class="form-group">
+          <label for="designation">Designation:</label>
+          <input
+            type="text"
+            id="designation"
+            class="form-control"
+            formControlName="designation"
+            placeholder="Designation"
+          />
+          <div *ngIf="registerForm.controls['designation'].touched && registerForm.controls['designation'].invalid">
+            <span *ngIf="registerForm.controls['designation'].hasError('required')">Designation is required.</span>
+          </div>
+        </div>
+        <!-- Employee ID Field -->
+        <div class="form-group">
+          <label for="empId">Employee ID:</label>
+          <input
+            type="text"
+            id="empId"
+            class="form-control"
+            formControlName="empId"
+            placeholder="Employee Id"
+          />
+          <div *ngIf="registerForm.controls['empId'].touched && registerForm.controls['empId'].invalid">
+            <span *ngIf="registerForm.controls['empId'].hasError('required')">Employee ID is required.</span>
+          </div>
+        </div>
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            formControlName="password"
+            placeholder="Password"
+          />
+          <div *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid">
+            <span *ngIf="registerForm.controls['password'].hasError('required')">Password is required.</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
+        <p (click)="toggleForm('login')">
+          Already have an account?
+          <span class="highlighted">Login</span>
+        </p>
+      </form>
+
+      <!-- forgotPassword -->
+
+      <!-- OTP -->
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+/* Container for the leave request form */
+.leaverequest {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between form elements */
+  padding: 20px;
+  border: 1px solid #ddd; /* Light border for definition */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 100%; /* Full width container */
+  max-width: 500px; /* Max width for form */
+  margin: 0 auto; /* Center the form horizontally */
+
+  /* New properties to handle overflow and scrolling */
+  max-height: 100vh; /* Max height set to 90% of viewport height */
+  overflow-y: auto; /* Enables vertical scrolling */
+}
+
+/* Heading styling */
+.leaverequest h3 {
+  display: flex;
+  justify-content: space-between; /* Align heading text and close icon */
+  align-items: center; /* Center align heading text and close icon */
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Dark grey text for readability */
+  position: relative; /* To position the close button */
+}
+
+/* Close button styling */
+.leaverequest h3 button {
+  background: none; /* No background for button */
+  border: none; /* Remove default button border */
+  cursor: pointer; /* Pointer cursor on hover */
+  position: absolute; /* Absolute positioning within h3 */
+  right: 0; /* Align button to the right */
+  top: 0; /* Align button to the top */
+}
+
+.leaverequest h3 mat-icon {
+  color: #f44336; /* Red color for close icon */
+  font-size: 24px; /* Increase icon size */
+}
+
+/* Input container styling */
+.leaverequest .type,
+.leaverequest .Date,
+.leaverequest .reason {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Space between label and input */
+  margin-bottom: 12px; /* Space below each input section */
+}
+
+/* Form field styling */
+.mat-form-field {
+  width: 100%; /* Full width for form fields */
+}
+
+/* Date picker input styling */
+.mat-form-field input {
+  padding: 8px; /* Padding inside input fields */
+}
+
+/* Submit button styling */
+button[type="submit"] {
+  align-self: flex-start; /* Align submit button to the left */
+  margin-top: 16px;
+  background-color: crimson; /* Space above submit button */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .leaverequest {
+    padding: 16px; /* Reduced padding on smaller screens */
+    max-width: 100%; /* Full width on smaller screens */
+  }
+}

@@ -1,0 +1,86 @@
+
+
+  <div class="user-info-content">
+    <h2>{{username}}   <mat-icon>pan_tool</mat-icon></h2>
+    <button type="button" class="btn btn-danger" (click)="RequestTimeoff()">Request Time off</button>
+  </div>
+<div class="leave">
+  <div class="box" >Casual Leave
+  <mat-progress-bar mode="determinate" value="{{casual_percentage}}"></mat-progress-bar>
+  <div>
+    <span> Available: {{casual_available}}</span>
+   </div>
+   <div>
+     <span> Used: {{casual_used}}</span>
+    </div>
+
+
+
+  </div>
+  <div class="box" >Earned Leave
+    <mat-progress-bar mode="determinate" value={{Earned_percentage}}></mat-progress-bar>
+    <div>
+      <span> Available: {{Earned_available}}</span>
+     </div>
+     <div>
+       <span> Used: {{Earned_percentage}}</span>
+      </div>
+
+
+  </div>
+  <div class="box" >Sick Leave
+    <mat-progress-bar mode="determinate" value="{{sick_percentage}}"></mat-progress-bar>
+    <div>
+      <span> Available: {{sick_available}}</span>
+     </div>
+     <div>
+       <span> Used: {{sick_used}}</span>
+      </div>
+
+
+  </div>
+  <div class="box" >Special Leave
+    <mat-progress-bar mode="determinate" value="{{special_percentage}}"></mat-progress-bar>
+    <div>
+      <span> Available: {{special_available}}</span>
+     </div>
+     <div>
+       <span> Used: {{special_used}}</span>
+      </div>
+
+  </div>
+  <div class="box" >Adjustment leave
+    <mat-progress-bar mode="determinate" value="{{Adjustment_percentage}}"></mat-progress-bar>
+    <div>
+      <span> Available: {{Adjustment_available}}</span>
+     </div>
+     <div>
+       <span> Used: {{Adjustment_used}}</span>
+      </div>
+
+
+  </div>
+  <div class="box" >Unpaid leave
+    <mat-progress-bar mode="determinate" value="{{unpaid_percentage}}"></mat-progress-bar>
+    <div>
+      <span> Available: {{unpaid_available}}</span>
+     </div>
+     <div>
+       <span> Used: {{unpaid_used}}</span>
+      </div>
+
+
+  </div>
+  <div class="box" > <b style="color: blueviolet;">Half leave</b>
+    <mat-progress-bar mode="determinate" value="{{half_leave_percentage}}"></mat-progress-bar>
+    <div>
+      <span> Available: {{half_leave_available}}</span>
+     </div>
+     <div>
+       <span> Used: {{half_leave_used}}</span>
+      </div>
+
+
+  </div>
+</div>
+
