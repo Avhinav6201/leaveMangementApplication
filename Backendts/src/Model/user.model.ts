@@ -123,6 +123,29 @@ async getUserleaveDetails(id:Number){
     console.log("queryparam",queryParam)
     return await psqlAPM.fnDbQuery('deleteResetPasswordToken',queryText,queryParam);
   }
+  async insertUserLeave(email, leave_type, available, used, created_by) {
+    const queryText = `
+      INSERT INTO user_leave_details (user_id, leave_type_id, available, used, created_on, created_by)
+      VALUES (
+        (SELECT id FROM "Users" WHERE email = $1),
+        (SELECT id FROM leave_type WHERE leave_type = $2),
+        $3, $4, NOW(), $5
+      )
+    `;
+    const queryParam = [email, leave_type, available, used, created_by];
+    return await psqlAPM.fnDbQuery('insertUserLeave', queryText, queryParam);
+  }
+  
+  async updateuserLeave(available:number,used:number,email:String,leave_name:String,modified_by:number){
+    const querytext=`update user_leave_details set available=$1,used=$2,modified_on=$3,modified_by=$4 where user_id=(select id from "Users" where email=$5) and leave_type_id=(select id from  leave_type where leave_type=$6)`;
+    const queryParam=[available,used,new Date(),modified_by,email,leave_name];
+    return await psqlAPM.fnDbQuery('updateuserLeave',querytext,queryParam);
+  }
+  async CheckuserleavewithLeaveType(leave_type:String,user_email:String){
+    const queryText=`select *from user_leave_details where leave_type_id=(select id from leave_type where leave_type=$1) and user_id=(select id from "Users" where email=$2)`;
+    const queryParam=[leave_type,user_email];
+    return await psqlAPM.fnDbQuery('CheckuserleavewithLeaveType',queryText,queryParam);
+  }
 }
 
 export default new UserModel();

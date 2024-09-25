@@ -1,8 +1,12 @@
 import express from 'express';
 import userController from '../controller/user.controller';
 import { isAutheticated } from '../controller/auth.controller';
+import { upload } from '../config/constant';
 const router=express.Router();
+
+
 console.log('registering the routes')
+
 router.post('/login',async(req:any,res:any)=>{
     try{
         let result=await userController.logIn(req,res);
@@ -11,6 +15,21 @@ router.post('/login',async(req:any,res:any)=>{
         res.json({success:false,error:true,message:e.message});
 
     }
+})
+router.post('/uploadcsv',upload.single('file'),async(req:any,res:any)=>{
+   console.log('api hit')
+    try{
+        let result=await userController.upload(req,res);
+        res.json(result)
+    }catch(e:any){
+        res.json({success:false,error:true,message:e.message});
+
+    }
+
+   
+
+
+
 })
 router.post('/register',async(req:any,res:any)=>{
     try{
@@ -105,6 +124,20 @@ router.get('/getUserLeave',async(req:any,res:any)=>{
         res.json({success:false,error:true,message:e.message});
      }
 })
-
+router.post('/uploadcsv',upload.single('file'),async(req:any,res:any)=>{
+    console.log('api hit')
+     try{
+         let result=await userController.upload(req,res);
+         res.json(result)
+     }catch(e:any){
+         res.json({success:false,error:true,message:e.message});
+ 
+     }
+ 
+    
+ 
+ 
+ 
+ })
 console.log('Routes Registered')
 export default router;

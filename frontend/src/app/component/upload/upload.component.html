@@ -1,0 +1,11 @@
+<div class="upload-container">
+  <form [formGroup]="uploadForm">
+    <label for="fileInput" class="file-label">Select a file:</label>
+    <br>
+    <input type="file" id="fileInput" (change)="FileInput($event)">
+
+    <button type="submit" class="upload-button" (click)="uploadFile()">
+      Upload
+    </button>
+  </form>
+</div>

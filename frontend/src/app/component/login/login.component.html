@@ -3,7 +3,7 @@
 
   <div class="login-container">
     <!-- login -->
-    <form *ngIf="activeForm === 'login'" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <form *ngIf="activeForm === 'login'" [formGroup]="loginForm">
       <h2>Login</h2>
       <div class="form-group">
         <label for="email">Email:</label>
@@ -31,7 +31,7 @@
           <span *ngIf="loginForm.controls['password'].hasError('required')">Password is required.</span>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" >Login</button>
+      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" (click)="onLogin()" >Login</button>
       <div class="links-container">
         <p (click)="toggleForm('register')">
           <span class="highlighted">Register</span>
@@ -46,7 +46,7 @@
     <div class="forms-container" *ngIf="activeForm === 'register' ">
 
       <!-- register -->
-      <form *ngIf="activeForm === 'register'" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <form *ngIf="activeForm === 'register'" [formGroup]="registerForm">
         <h2>Register</h2>
         <!-- Username Field -->
         <div class="form-group">
@@ -119,10 +119,11 @@
             <span *ngIf="registerForm.controls['password'].hasError('required')">Password is required.</span>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
+        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid"(click)="onRegister()">Register</button>
         <p (click)="toggleForm('login')">
           Already have an account?
           <span class="highlighted">Login</span>
+
         </p>
       </form>
 

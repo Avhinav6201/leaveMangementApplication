@@ -28,6 +28,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AuthInterceptorService } from './component/_services/auth-interceptor.service';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
 import { PagenotFoundComponent } from './component/pagenot-found/pagenot-found.component';
+import { UploadComponent } from './component/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { PagenotFoundComponent } from './component/pagenot-found/pagenot-found.c
     HistoryComponent,
     LeaveRequestComponent,
     ResetpasswordComponent,
-    PagenotFoundComponent
+    PagenotFoundComponent,
+    UploadComponent
 
   ],
   imports: [

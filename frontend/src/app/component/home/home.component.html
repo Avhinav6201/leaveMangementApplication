@@ -9,6 +9,9 @@
       <a (click)="showComponent('history')" [class.active]="currentComponent === 'history'" class="nav-link">
         <mat-icon>history</mat-icon> History
       </a>
+      <a (click)="showComponent('upload')" [class.active]="currentComponent === 'upload'" class="nav-link">
+        <mat-icon>upload</mat-icon> Upload
+      </a>
     </div>
   </nav>
 </section>
@@ -42,5 +45,8 @@
 
   <div *ngIf="currentComponent === 'history'">
     historyworks
+  </div>
+  <div *ngIf="currentComponent==='upload'">
+    <app-upload></app-upload>
   </div>
 </div>

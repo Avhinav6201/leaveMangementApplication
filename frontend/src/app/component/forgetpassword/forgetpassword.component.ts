@@ -7,12 +7,12 @@ import { UserServicesService } from '../_services/user-services.service';
 @Component({
   selector: 'app-forgetpassword',
   templateUrl: './forgetpassword.component.html',
-  styleUrls: ['./forgetpassword.component.css']
+  styleUrls: ['./forgetpassword.component.css'],
 })
 export class ForgetpasswordComponent {
   forgotPasswordForm: FormGroup;
   email!: string;
-  isLoading = false;  // Track the loading state
+  isLoading = false; // Track the loading state
 
   constructor(
     private snackbar: MatSnackBar,
@@ -21,7 +21,7 @@ export class ForgetpasswordComponent {
     private dialogRef: MatDialogRef<ForgetpasswordComponent>
   ) {
     this.forgotPasswordForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]],
     });
   }
 
@@ -30,16 +30,12 @@ export class ForgetpasswordComponent {
       const email: string = this.forgotPasswordForm.value.email;
       this.email = email;
 
-
       this.isLoading = true;
 
-      this.sendEmail(email)
-        .finally(() => {
-
-          this.isLoading = false;
-          this.closeDialog();
-        });
-
+      this.sendEmail(email).finally(() => {
+        this.isLoading = false;
+        this.closeDialog();
+      });
     } else {
       console.log('Form is invalid');
       this.snackbar.open('Please enter a valid email address.', 'Close', {
@@ -52,31 +48,38 @@ export class ForgetpasswordComponent {
     try {
       const data: any = await this._userService.sendEmail(email);
       if (data.success) {
-        this.snackbar.open('Link for resetting password was sent successfully to your email.', 'Close', { duration: 3000 });
+        this.snackbar.open(
+          'Link for resetting password was sent successfully to your email.',
+          'Close',
+          { duration: 3000 }
+        );
       } else {
-
         this.snackbar.open(data.message, 'Close', { duration: 3000 });
       }
     } catch (error) {
       console.error('Error sending email:', error);
-      this.snackbar.open('An error occurred while sending the email. Please try again.', 'Close', { duration: 3000 });
+      this.snackbar.open(
+        'An error occurred while sending the email. Please try again.',
+        'Close',
+        { duration: 3000 }
+      );
     }
   }
 
   closeDialog(): void {
-    this.dialogRef.close();  // Correct method to close the dialog
+    this.dialogRef.close(); // Correct method to close the dialog
   }
 }
 
-    //   this.otpForm = this.fb.group({
-  //     otp: ['', [Validators.required, Validators.pattern(/^\d{6}$/)]]
-  //   });
+//   this.otpForm = this.fb.group({
+//     otp: ['', [Validators.required, Validators.pattern(/^\d{6}$/)]]
+//   });
 
-  //   this.resetPasswordForm = this.fb.group({
-  //     newPassword: ['', [Validators.required, Validators.minLength(6)]],
-  //     confirmNewPassword: ['', [Validators.required]]
-  //   }, { validator: this.passwordMatchValidator });
-  // }
+//   this.resetPasswordForm = this.fb.group({
+//     newPassword: ['', [Validators.required, Validators.minLength(6)]],
+//     confirmNewPassword: ['', [Validators.required]]
+//   }, { validator: this.passwordMatchValidator });
+// }
 
 //   onVerifyOtp(): void {
 //     if (this.otpForm.valid) {
@@ -148,4 +151,3 @@ export class ForgetpasswordComponent {
 //       });
 //     }
 //   }
-

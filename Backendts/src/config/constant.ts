@@ -1,10 +1,17 @@
 
-
+import path from 'path';
 import jwt from 'jsonwebtoken'
 export const jwtSecret = 'Abhinav@123';
 const encryption_key="encryptleavemangementdata123456";
 var CryptoJS = require("crypto-js");
 const nodemailer=require('nodemailer');
+import multer from 'multer';
+const fs = require("fs");
+const { parse } = require("csv-parse");
+
+export let pathTobeRead:String;
+
+
 export const PgDbConfig = {
     user: 'postgres',
   host: '127.0.0.1',
@@ -12,6 +19,10 @@ export const PgDbConfig = {
   password: 'root',  
   port: 5432
  };
+
+ const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
 
   function generateToken(user:any):string{
         return jwt.sign(
@@ -53,4 +64,4 @@ export const PgDbConfig = {
  }
 
   
-   export  {generateToken,transport,generateTokenForForgetPassWord,encrypt,decrypt};
+   export  {generateToken,transport,generateTokenForForgetPassWord,encrypt,decrypt,upload};
